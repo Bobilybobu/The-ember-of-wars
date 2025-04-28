@@ -1,26 +1,59 @@
 'use client'
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
- 
-import { useRouter } from 'next/navigation'
 export default function Event() {
     const router = useRouter();
-    function handleClick() {
-
-        router.push("/events/vuthu");
-    }
     return (
-        <div className="bg-white w-screen h-screen">
-            <h1 className="text-center mt-5 text-[40px] text-red-400">Events</h1>
-            <div>
-                <Image
-                src="/pic3.jpg"
-                width={500}
-                height={500}
-                alt="img"
-                />
-                <button onClick = {handleClick} className='border-2 rounded-[1vw] border-red-400 border-solid text-black ml-10 mt-2 px-2 bg-red-400'>Vu Thu trip</button>
-            </div>
-        </div>
+        <div className="dark:bg-black dark:text-white min-h-screen flex flex-col ml-20 mr-10">
+            <header className="mt-10 flex items-start justify-between mb-30">
+                <h1 className="text-5xl text-orange-400/80">events</h1>
+                <nav className="flex justify-end text-xl">
+                    <div className="mr-10">
+                        <Link href="/">
+                            home
+                        </Link>
+                    </div>
+                    <div className="mr-10">
+                        <Link href="/intro">
+                            intro
+                        </Link>
+                    </div>
+                    <div className="mr-10">
+                        <Link href="/aoi">
+                            agent orange insight
+                        </Link>
+                    </div>
+                    <div className="mr-10">join</div>
+                </nav>
+            </header>
+            <main className="flex-1 flex justify-between gap-10 p-10">
+                <div className="flex flex-col">
+                    <Image
+                        src="/pic3.jpg"
+                        width={500}
+                        height={500}
+                        alt="img"
+                        className="object-cover"
+                    />
+                    <button onClick={() => {router.push("/events/vu_thu_trip")}} className="mt-5 mx-auto px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 text-white font-semibold shadow-md hover:scale-105 transition-transform duration-300">
+                        Vu Thu Charity trip
+                    </button>
+                </div>
+                <div className="flex flex-col">
+                    <Image
+                        src="/menu.jpg"
+                        width={500}
+                        height={500}
+                        alt="img"
+                        className="object-cover"
+                    />
+                    <button onClick={() => {router.push("/events/peace_of_sweets")}} className="mt-5 mx-auto px-6 py-2 rounded-full bg-gradient-to-r from-orange-400 via-red-500 to-orange-600 text-white font-semibold shadow-md hover:scale-105 transition-transform duration-300">
+                        Peace of Sweets Fundraising
+                    </button>
+                </div>
+            </main >
+        </div >
     )
 }

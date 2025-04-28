@@ -1,12 +1,13 @@
-import "./globals.css"; 
+import "./globals.css";
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
     return (
-        <html> 
+        <html>
             <head>
-                <title> The Embers of War</title>
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title> The Embers of War</title>
             </head>
-            <body className="w-screen h-screen">
+            <body >
                 {children}
             </body>
 
